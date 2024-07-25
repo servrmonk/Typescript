@@ -1,0 +1,45 @@
+typescript in Node js 
+1. tsc --init to create the tsconfig.json file  again 
+and than npm init 
+install express npm i --save express
+and then install body parser npm i --save body-parser 
+add app.js file 
+Let's build basic rest api with typescript
+for this change the extension app.ts
+u get the error require method is only available when i am running my apk with node if we would want to run it on the browser this doesn't exist and the typescript don't know where i am going to run the code typescript don't kknow weather the express is exist or not so let's typescript know that this exist we can simply install 
+npm i --save-dev @types/node in npm u can find many typescript if we installit we can use nodejs specific syntax in our ts file  because this dependencies will provides the typescript with the translation of these with the js and in this case it just let typescript know that this function here exist because we are building the node apk u can say 
+
+npm i --save-dev @types/node  after installing this ur error  finish 
+there is not extra support if u write app. there is not any autosuggestion here so for that extra support by ide so if typescriptwould understand that we have the listen method this would also insure that we can't pass the invalid data, now we can make the typescript aware of the express package just as we made aware in the node 
+by installing another npm i --save-dev @types/express
+and for a lot of popular 3rd party library u'll find such types packages , there are typescript translation available for all major js library ex: @types/libraryname 
+u still don't get the autosuggestion this is not enough for node which is general code of writing so bydefault typescript   is tuned for web apps running in the browser and there this import is not available . so that not the default import syntax it expects  when it come to combining multiple files we can change the configuration in typescript -> tsconfig.json file there module is set to commonjs and set moduleResulation:"node" and target:"es6"
+
+// const express = require("express");
+// const app = express();
+// app.listen(3000);
+//  import express from 'express'
+// or
+import express = require("express");
+const app = express();
+app.listen(3000);
+
+and now u get the autocompletion
+
+
+// don't have to do module.exports = router butinstead 
+export default router
+
+
+import { Router } from "express";
+const router = Router();
+
+const todos = [];
+
+router.get('/',(req,res,next)=>{
+    res.status(200).json({todos:todos}); //variable todos is implicitely  of type any array here we are not specifying which kind of data in todos so we have to pass and make clear which kind of the data 
+})
+
+// don't have to do module.exports = router butinstead 
+export default router
+

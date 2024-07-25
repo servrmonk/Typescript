@@ -1,0 +1,81 @@
+What is typescript and why :
+typescript is  a superset of js it build on js  it extends js and unlike js ts doesn't run on the browser instead ts has to be compiled so has to be run again now we use typescript because typescript gives us developer a better development features to the code which only exist during development but still helps us to write better code and avoid unwanted error
+
+shift enter
+
+function add(num1,num2){
+    return num1 + num2;
+}
+add(1,2)
+3
+add('1','4')
+'14'
+
+imagine that u have 2 input in ur page 2 input where u fetch some user input now u should know that whatever data u should extract from input is always extracted as text(string) in js so even the user will enter the input a number in ur pageif  u extract the data with js it will be a string 
+now here typescript comes inpicture : to avoid unwanted error that happens in runtime so when our codes executes we can use typescript now ofcourse we can avoid this behaviour using js by adding if else check weather the value is string or number 
+but in js we have to write some extra code unnecessary steps that could be avoided with strict types check here typescriptadd the strict typing
+
+in general typescript add bunch of features in js 
+-> types
+-> next gen js features (compiled down for older browser)
+-> non js features like interfaces or generics
+-> meta programing features like decorators
+-> Rich configuration options
+-> Modern tooling that helps even in non typescript Projects 
+
+app.ts file and then i have to install typescript compiler (bc typescript doesn't run on browser so we need to convert typescript to js  for that we need typescript compiler )
+npm i -g typescript
+
+and then for run tsc filename
+tsc app.ts and a js file created app.js and include it on index.html
+we will use app.ts
+
+  // we can types on variable and parameter to make it clear which kind of value is accepted here ex : number type,string type,boolean type , object type  , array types
+  and now u can't pass the different type of parameter
+  function add(num1:number,num2:number)
+
+  typescript build on js that means any js code can runs on ts files
+
+  HTMLButtonElement is one of many built-in types which are supported by TS out of the box
+
+  let's add some configuration in Projects
+  we can add configuration file by running tsc --init
+  strict mode check on tsconfig.json 
+  there is any type means no extra type any thing can come here 
+  if have tsconfig file than u can simple write tsc for compile all for target use tsc filename
+
+
+// type :this allow to use create own type 
+type NumorString = number | string
+// and u can use NumorString anywhere 
+type Resuld = {val:number;tymestamp:Date}
+
+// alternative  is interface
+interface ResultObj {
+    val :number;timestamp:Date
+}
+//the diff is interface is force class to implement some functionality
+
+
+
+  //what if i want to accepts strings and number than we can use the features called union types code more than one types num1: number | string , num1 either be number or string 
+//u can use typeof  for manipulate the result
+
+// object and array types 
+// here HTMLInputElementis of object type because we have dom object here in js we can also define our own object type
+
+// understanding generic: simply  atype that interact with another types array is a great example that list of data and integrate with other types
+// const arr :Array = [];
+// understanding generic: simply  atype that interact with another types array is a great example that list of data and integrate with other types
+// const arr :Array = [];
+const arr :Array<number> = [];
+// we can use promise in generic types
+const  myPromise = new Promise<string> ((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve('It worked')
+    },1000);
+});
+myPromise.then((result)=>{
+    console.log(result)
+})
+
