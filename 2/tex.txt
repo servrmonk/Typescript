@@ -63,3 +63,25 @@ i don't know the params as well as  the body is a type any .
 Ex:
 const body = req.body as {text:string};
 text: body.text,
+
+or 
+
+type RequestBody = { text: string }; // alias
+// and we can do this same for params
+type RequsetParams = { todoId: string };  //u can specify different alias for different routes
+in routes 
+ const body = req.body as RequestBody;
+ text: body.text,
+
+The more important and more annoying thing here is that we always here js files next to the typescript file and the problem is that our actual sourcecode is that we developer work is that the typescript code therefore here some extra file in the code and we should not work  in those extra js code 
+andtherefore i want to make sure that the compile files end up in a different place and to achieve this we can go to the tsconfig.json file and there outDir configuration u will uncomment there this allows u to set the directory where the generated js file will be stored 
+"outDir": "./dist",  /* Specify an output folder for all emitted files. */
+and then run tsc u get the .dist folder and delete the outside js file 
+now our distfolder holds our finish node app which we can run 
+seperate the source folder
+and keep the models routes and app.ts inside the src folder
+and now in tsconfig.json i will set the rootDir and i will make to './src'
+"rootDir": "./src",                                  /* Specify the root folder within your source files. */
+and now u run tsc
+
+add script in package.json "start":"node dist/app.js" and run npm start
