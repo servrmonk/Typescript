@@ -42,4 +42,24 @@ router.get('/',(req,res,next)=>{
 
 // don't have to do module.exports = router butinstead 
 export default router
+this is the model
+export interface Todo {
+  id: string;
+  text: string;
+}
 
+
+
+Understand that node js is always used with typescript to ensure less errors.
+That is the industry standard.
+Writing backend application without type checking is dangerous.
+
+
+for running add first tsc and then node app.js not app.ts we can only execute js code with the node  node is not capable for running typescript code it's only capable for running js code so therefore we need to compile the ts code to js 
+
+Extra typescript features :  typecasting
+i don't know the params as well as  the body is a type any .
+
+Ex:
+const body = req.body as {text:string};
+text: body.text,
